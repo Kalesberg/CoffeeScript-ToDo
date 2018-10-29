@@ -6,7 +6,7 @@ getTodos = (req,res) ->
   Todo.find().exec (err,todos) -> 
     if err
         return res.json {'success':false,'message':'Some Error'}
-    res.json({'success':true,'message':'Todos fetched successfully','todos':todos })
+    res.json {'success':true,'message':'Todos fetched successfully','todos':todos } 
 
 addTodo = (io,T) ->  
   newTodo = new Todo T
