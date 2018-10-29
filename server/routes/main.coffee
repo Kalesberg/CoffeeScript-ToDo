@@ -1,12 +1,13 @@
+
 express = require 'express'
+websocket = require '../controller/websocket'
 
-controller = require '../controller/controller'
-app = express()
-app.get '/', () ->
-  console.log '### get /'
-  controller.getTodos()
-app.get '/:id', () ->
-  console.log '### get /:id'
-  controller.getTodo()
+router = express.Router()
 
-module.exports.todoRoutes = app;
+router.route('/')
+     .get(websocket.getTodos)
+
+router.route('/:id')
+      .get(websocket.getTodo)
+
+module.exports = router

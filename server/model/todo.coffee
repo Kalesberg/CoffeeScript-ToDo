@@ -3,10 +3,11 @@
 mongoose = require 'mongoose'
 init = () ->
     TheSchema = new mongoose.Schema
-        title: String,
-        complete: Boolean
+        todoText: String,
+        todoDesc: String,
     
     mongoose.model 'Todo', TheSchema
 
+Todo = Todo || init()
 
-module.exports.init = init;
+module.exports = Todo
