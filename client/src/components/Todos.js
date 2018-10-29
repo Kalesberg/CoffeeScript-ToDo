@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Alert,Glyphicon,Button,Modal } from 'react-bootstrap';
-import { Link } from 'react-router';
 import TodoEditForm from './TodoEditForm';
 
 export default class Todos extends React.Component {
@@ -77,19 +75,19 @@ export default class Todos extends React.Component {
         <p>Loading todos....</p>
       }
       {todos.length <= 0 && !todoState.isFetching &&
-        <p>No Todos Available. Add A Todo to List here.</p>
+        <p>No Todos Available. Click Right Top "Add Todo" Region</p>
       }
       {todos && todos.length > 0 && !todoState.isFetching &&
       <table className="table booksTable">
       <thead>
-       <tr><th>Todo</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">View</th></tr>
+       <tr><th>Todo</th><th className="textCenter">Edit</th><th className="textCenter">Delete</th><th className="textCenter">Description</th></tr>
       </thead>
       <tbody>
         {todos.map((todo,i) => <tr key={i}>
         <td>{todo.todoText}</td>
          <td className="textCenter"><Button onClick={() => this.showEditModal(todo)} bsStyle="info" bsSize="xsmall"><Glyphicon glyph="pencil" /></Button></td>
          <td className="textCenter"><Button onClick={() => this.showDeleteModal(todo)} bsStyle="danger" bsSize="xsmall"><Glyphicon glyph="trash" /></Button></td>
-         <td className="textCenter"><Link to={`/${todo._id}`}>View Details</Link> </td>
+         <td>{todo.todoDesc}</td>
          </tr> )
       }
       </tbody>
