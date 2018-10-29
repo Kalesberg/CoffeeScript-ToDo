@@ -25,7 +25,10 @@ The app includes the technologies listed below:
 - First run ```npm run start``` at the server folder, and then do the same command at the client folder
 - It will show the simple todo app on the ```3000``` port.
 
-## Test
-
+## Unit Test
+ - In the client folder, run the command ```npm run test```, It will show 2 unit's test result.
+ - App.test.js ( Default offered by create-react-app cli)
+ - Applied response check using Enzyme's shallow about the one of component, Todo 
+ 
 ## License
 [MIT License](http://opensource.org/licenses/MIT)
